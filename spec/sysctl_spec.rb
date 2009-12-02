@@ -9,7 +9,15 @@ describe "A manifest with the Sysctl plugin" do
 
   before do
     @manifest = SysctlManifest.new
-    @manifest.configure(:sysctl => {'net.ipv4.tcp_tw_reuse' => 1})
+    @manifest.configure(YAML.load(':sysctl:
+      net.ipv4.tcp_tw_reuse: 1
+      net.ipv4.ip_local_port_range: 10000 65023
+      net.ipv4.tcp_max_syn_backlog: 10240
+      net.ipv4.tcp_max_tw_buckets: 400000
+      net.ipv4.tcp_max_orphans: 60000
+      net.ipv4.tcp_synack_retries: 3
+      net.ipv4.tcp_syncookies: 1
+      net.core.somaxconn: 10000'))
   end
 
   it "should be executable" do
