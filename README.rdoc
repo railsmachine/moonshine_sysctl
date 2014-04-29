@@ -34,3 +34,6 @@ You'd add the following to your <tt>config/moonshine.yml</tt>:
     net.ipv4.tcp_synack_retries: 3
     net.ipv4.tcp_syncookies: 1
     net.core.somaxconn: 10000
+
+
+Unless otherwise specified, all content copyright (C) 2014, Rails Machine
