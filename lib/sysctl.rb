@@ -4,7 +4,7 @@ module Sysctl
   def sysctl(hash = {})
     file '/etc/sysctl.d/99-moonshine.conf',
       :ensure => :present,
-      :mode => 644,
+      :mode => '644',
       :content => template(File.join(TEMPLATES_DIR, 'sysctl.erb'), binding)
 
     # update the sysctl params when they change
